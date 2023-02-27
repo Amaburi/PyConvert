@@ -4,7 +4,7 @@ from os import replace, system
 def judul():
     system('cls')
     print('=====================================')
-    print('Program Konversi Bilangan'.center(40))
+    print(' Konversi Bilangan jy'.center(40))
     print('=====================================')
 
 def menu():
@@ -13,8 +13,8 @@ def menu():
     print('| 2. Biner                          |')
     print('| 3. Oktal                          |')
     print('| 4. Hexadecimal                    |')
-    print('| 5. keluar                         |')
-    print('| 6. keluar                         |')
+    print('| 5. ASCII                         |')
+    print('| 6. KELUAR                        |')
     print('=====================================')
     pilih2 = input('Pilih Menu : ')
     if pilih2 == '1':
