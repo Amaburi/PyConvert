@@ -14,33 +14,50 @@ root.resizable(False, False)
 def convert():
     if var.get() == 1:
         angka = int(entry.get())
+        angka_str = str(angka)
         bineri = bin(angka).replace("0b","")
         oktal = oct(angka).replace("0o","")
         heks = hex(angka).replace("0x","")
-        hasil.config(text=f'Biner : {bineri}\nOktal : {oktal}\nHexa  : {heks}')
+        ascii_values = [ord(character) for character in angka_str]
+        hasil.config(text=f'Biner : {bineri}\nOktal : {oktal}\nHexa  : {heks}\nAscii  : {ascii_values}')
         
     elif var.get() == 2:
         angka = int(entry.get(), 2)
+        angka_str = str(angka)
         oktal = oct(angka).replace("0o","")
         heks = hex(angka).replace("0x","")
-        hasil.config(text=f'Decimal : {angka}\nOktal   : {oktal}\nHexa    : {heks}')
+        ascii_values = [ord(character) for character in angka_str]
+        hasil.config(text=f'Decimal : {angka}\nOktal   : {oktal}\nHexa    : {heks}\nAscii  : {ascii_values}')
         
     elif var.get() == 3:
         angka = int(entry.get(), 8)
+        angka_str = str(angka)
         biner = bin(angka).replace("0b","")
         heks = hex(angka).replace("0x","")
-        hasil.config(text=f'Decimal : {angka}\nBiner   : {biner}\nHexa    : {heks}')
+        ascii_values = [ord(character) for character in angka_str]
+        hasil.config(text=f'Decimal : {angka}\nBiner   : {biner}\nHexa    : {heks}\nAscii  : {ascii_values}')
         
     elif var.get() == 4:
         angka = int(entry.get(), 16)
+        angka_str = str(angka)
         biner = bin(angka).replace("0b","")
         oktal = oct(angka).replace("0o","")
-        hasil.config(text=f'Decimal : {angka}\nBiner   : {biner}\nOktal   : {oktal}')
+        ascii_values = [ord(character) for character in angka_str]
+        hasil.config(text=f'Decimal : {angka}\nBiner   : {biner}\nOktal   : {oktal}\nAscii  : {ascii_values}')
         
     elif var.get() == 5:
         text = entry.get()
+        hex_string = text.encode().hex()
+        decimal = int(hex_string, 16)
         ascii_values = [ord(character) for character in text]
-        hasil.config(text=f'Ascii : {ascii_values}')
+        decimal_values = [int(value) for value in ascii_values]
+        biner = bin(decimal)
+        oktal = oct(decimal)
+        heks = hex(decimal).replace("0x", "").upper()
+        hasil.config(text=f'Decimal : {decimal}\nBiner   : {biner}\nOktal   : {oktal}\nHexa    : {heks}\nASCII  : {ascii_values}')
+
+
+
 
 def clear():
     entry.delete(0, END)
