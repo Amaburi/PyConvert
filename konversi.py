@@ -5,7 +5,7 @@ root.title('Konversi Bilangan jy')
 
 
 # Set window size to 800x600 pixels
-root.geometry("450x450")
+root.geometry("450x500")
 
 # Disable maximize button
 root.resizable(False, False)
@@ -47,14 +47,15 @@ def convert():
         
     elif var.get() == 5:
         text = entry.get()
-        hex_string = text.encode().hex()
-        decimal = int(hex_string, 16)
-        ascii_values = [ord(character) for character in text]
-        decimal_values = [int(value) for value in ascii_values]
-        biner = bin(decimal)
-        oktal = oct(decimal)
+        decimal_values = [ord(character) for character in text]
+        decimal = int(''.join(map(str, decimal_values)))
+        
+        biner = bin(decimal).replace("0b", "")
+        oktal = oct(decimal).replace("0o", "")
         heks = hex(decimal).replace("0x", "").upper()
-        hasil.config(text=f'Decimal : {decimal}\nBiner   : {biner}\nOktal   : {oktal}\nHexa    : {heks}\nASCII  : {ascii_values}')
+        hasil.config(text=f'Decimal : {decimal}\nBiner   : {biner}\nOktal   : {oktal}\nHexa    : {heks}\nASCII  : {decimal_values}')
+
+
 
 
 
