@@ -19,7 +19,12 @@ def convert():
         oktal = oct(angka).replace("0o","")
         heks = hex(angka).replace("0x","")
         ascii_values = [ord(character) for character in angka_str]
-        hasil.config(text=f'Biner : {bineri}\nOktal : {oktal}\nHexa  : {heks}\nAscii  : {ascii_values}')
+        if not ascii_values:
+            hasil.config(text=f'Biner : {bineri}\nOktal : {oktal}\nHexa : {heks}\nNo ASCII characters in input.')
+        else:
+            hasil.config(text=f'Biner : {bineri}\nOktal : {oktal}\nHexa : {heks}\nAscii : {ascii_values}')
+
+
         
     elif var.get() == 2:
         angka = int(entry.get(), 2)
@@ -27,7 +32,10 @@ def convert():
         oktal = oct(angka).replace("0o","")
         heks = hex(angka).replace("0x","")
         ascii_values = [ord(character) for character in angka_str]
-        hasil.config(text=f'Decimal : {angka}\nOktal   : {oktal}\nHexa    : {heks}\nAscii  : {ascii_values}')
+        if not ascii_values:
+            hasil.config(text=f'Decimal : {angka}\nOktal   : {oktal}\nHexa    : {heks}\nNo Ascii  Characters in input')
+        else:
+            hasil.config(text=f'Decimal : {angka}\nOktal   : {oktal}\nHexa    : {heks}\nAscii  : {ascii_values}')
         
     elif var.get() == 3:
         angka = int(entry.get(), 8)
@@ -35,7 +43,11 @@ def convert():
         biner = bin(angka).replace("0b","")
         heks = hex(angka).replace("0x","")
         ascii_values = [ord(character) for character in angka_str]
-        hasil.config(text=f'Decimal : {angka}\nBiner   : {biner}\nHexa    : {heks}\nAscii  : {ascii_values}')
+        
+        if not ascii_values:
+            hasil.config(text=f'Decimal : {angka}\nBiner   : {biner}\nHexa    : {heks}\nNo Ascii  Characters in input')
+        else:
+            hasil.config(text=f'Decimal : {angka}\nBiner   : {biner}\nHexa    : {heks}\nAscii  : {ascii_values}')
         
     elif var.get() == 4:
         angka = int(entry.get(), 16)
@@ -43,7 +55,11 @@ def convert():
         biner = bin(angka).replace("0b","")
         oktal = oct(angka).replace("0o","")
         ascii_values = [ord(character) for character in angka_str]
-        hasil.config(text=f'Decimal : {angka}\nBiner   : {biner}\nOktal   : {oktal}\nAscii  : {ascii_values}')
+        
+        if not ascii_values:
+            hasil.config(text=f'Decimal : {angka}\nBiner   : {biner}\nOktal   : {oktal}\nNo Ascii  Characters in input')
+        else:
+            hasil.config(text=f'Decimal : {angka}\nBiner   : {biner}\nOktal   : {oktal}\nAscii  : {ascii_values}')
         
     elif var.get() == 5:
         text = entry.get()
@@ -52,7 +68,7 @@ def convert():
         
         biner = bin(decimal).replace("0b", "")
         oktal = oct(decimal).replace("0o", "")
-        heks = hex(decimal).replace("0x", "").upper()
+        heks = hex(decimal).replace("0x","")
         hasil.config(text=f'Decimal : {decimal}\nBiner   : {biner}\nOktal   : {oktal}\nHexa    : {heks}\nASCII  : {decimal_values}')
 
 
